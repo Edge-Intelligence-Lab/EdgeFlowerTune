@@ -1,0 +1,22 @@
+{
+  "devices": [
+    {
+      "id": "jetson_a",
+      "type": "jetson",
+      "host": "JETSON_A_HOST",
+      "username": "JETSON_USERNAME",
+      "password_env": "JETSON_A_PASSWORD",
+      "gpu_id": 0,
+      "role": "python_gpu_client"
+    },
+    {
+      "id": "jetson_b",
+      "type": "jetson",
+      "host": "JETSON_B_HOST",
+      "username": "JETSON_USERNAME",
+      "password_env": "JETSON_B_PASSWORD",
+      "gpu_id": 0,
+      "role": "python_gpu_client"
+    }
+  ]
+}

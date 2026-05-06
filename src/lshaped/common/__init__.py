@@ -1,0 +1,2 @@
+"""Shared protocol and utilities."""
+

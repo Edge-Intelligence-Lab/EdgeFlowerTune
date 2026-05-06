@@ -1,0 +1,84 @@
+runtime:
+  run_name: classic_fl_qwen05b_fedprox_lora_three_phone_piqa_seq64_b8_r1_l3
+  output_dir: outputs/classic_fl_qwen05b_fedprox_lora_three_phone_piqa_seq64_b8_r1_l3
+  seed: 7
+flower:
+  server_address: 0.0.0.0:19452
+  grpc_max_message_length: 536870912
+  num_rounds: 1
+  min_available_clients: 3
+  min_fit_clients: 3
+  sample_clients: 3
+  round_timeout: 10800
+  eval_every_rounds: 0
+  client_wait_timeout: 3600
+federated:
+  algorithm: fedprox_lora
+  aggregate_by_num_examples: true
+  local_steps: 3
+  local_epochs: 0
+  grad_accum_steps: 8
+  jetson_grad_accum_steps: 8
+  prox_mu: 0.01
+dataset:
+  source: mmlu_csv
+  source_path: data/piqa_qwen/piqa_train_mmlu.csv
+  eval_source_path: data/piqa_qwen/piqa_validation_mmlu.csv
+  final_test_source_path: data/piqa_qwen/piqa_test_mmlu.csv
+  split: train
+  eval_split: validation
+  num_clients: 3
+  client_ids:
+  - vivo_73
+  - jad_24
+  - mate20_144
+  batch_size: 8
+  jetson_batch_size: 1
+  max_seq_len: 64
+  partition_mode: round_robin
+  dirichlet_alpha: 0.8
+  smoke_test_examples: 0
+model:
+  model_name_or_path: qwen2.5-0.5b
+  device: cuda
+  dtype: float16
+  target_embedding_mode: unused_classic_fl
+  freeze_input_embeddings: true
+  grad_clip_norm: 1.0
+  learning_rate: 0.0002
+  weight_decay: 0.0
+  training_mode: lora
+  lora_r: 8
+  lora_alpha: 16.0
+  lora_dropout: 0.0
+  lora_target_modules:
+  - q_proj
+  - k_proj
+  - v_proj
+  - o_proj
+  use_bf16_activations: true
+  checkpoint_every: 1
+  checkpoint_mlp: true
+  mlp_chunk_size: 16
+loss:
+  temperature: 1.0
+  queue_size: 0
+  use_in_batch_negatives: false
+client:
+  backend: mobilefinetuner_cpp
+  client_mode: classic_lora
+  upload_dtype: float32
+  pad_to_max_seq_len: false
+  target_mode: attn
+  use_bf16_activations: true
+  checkpoint_every: 1
+  checkpoint_mlp: true
+  mlp_chunk_size: 16
+  shard_max_resident_mb: 384
+  shard_quantize_fp16_on_disk: true
+  shard_quant_mode: int8
+  shard_offload_dir: __memory__
+logging:
+  save_every_rounds: 1
+  log_every_rounds: 1
+  save_optimizer: false

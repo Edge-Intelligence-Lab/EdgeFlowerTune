@@ -1,0 +1,22 @@
+[
+  {
+    "type": "jetson_gpu",
+    "client_id": "jetson_121",
+    "client_index": 1,
+    "host": "10.200.20.121",
+    "username": "jetson",
+    "password": "jetson",
+    "model_dir": "/home/jetson/L-shaped/models/gemma-3-1b-pt",
+    "remote_root": "/home/jetson/gemma3_mixed_formal"
+  },
+  {
+    "type": "jetson_gpu",
+    "client_id": "jetson_151",
+    "client_index": 2,
+    "host": "10.200.20.151",
+    "username": "jetson",
+    "password": "jetson",
+    "model_dir": "/home/jetson/L-shaped/models/gemma-3-1b-pt",
+    "remote_root": "/home/jetson/gemma3_mixed_formal"
+  }
+]

@@ -1,0 +1,71 @@
+runtime:
+  run_name: 20260502_required_rerun_l1_fix3_gemma1b_boolq_splitlora_nova5_jetson2_seq64_b8_r1_l1
+  output_dir: outputs/runs/20260502_required_rerun_l1_fix3_gemma1b_boolq_splitlora_nova5_jetson2_seq64_b8_r1_l1/server
+  seed: 7
+flower:
+  server_address: 0.0.0.0:19760
+  grpc_max_message_length: 536870912
+  num_rounds: 1
+  min_available_clients: 7
+  min_fit_clients: 7
+  sample_clients: 7
+  round_timeout: 14400
+  eval_every_rounds: 0
+  client_wait_timeout: 7200
+federated:
+  algorithm: splitlora
+  local_steps: 1
+  aggregate_by_num_examples: false
+  accept_failures: false
+  local_epochs: 0
+dataset:
+  source: mmlu_csv
+  source_path: data/boolq_gemma1b/boolq_train_mmlu.csv
+  split: train
+  eval_split: validation
+  num_clients: 7
+  client_ids:
+  - nova_78
+  - nova_252
+  - nova_19
+  - nova_72
+  - nova_49
+  - jetson_121
+  - jetson_88
+  batch_size: 8
+  max_seq_len: 64
+  partition_mode: round_robin
+  dirichlet_alpha: 0.8
+  smoke_test_examples: 0
+model:
+  model_name_or_path: /home/AndyLu666/L-shaped-run-classic/models/gemma-3-1b-pt
+  device: cuda:0
+  dtype: float16
+  target_embedding_mode: scaled_input_embedding
+  freeze_input_embeddings: true
+  grad_clip_norm: 1.0
+  learning_rate: 5.0e-05
+  weight_decay: 0.0
+  training_mode: lora
+  lora_r: 8
+  lora_alpha: 16.0
+  lora_dropout: 0.0
+  lora_target_modules:
+  - q_proj
+  - k_proj
+  - v_proj
+  - o_proj
+loss:
+  temperature: 1.0
+  queue_size: 64
+  use_in_batch_negatives: true
+client:
+  backend: mobilefinetuner_cpp
+  client_mode: split_lora
+  split_layer: 0
+  upload_dtype: float32
+  pad_to_max_seq_len: false
+logging:
+  save_every_rounds: 1
+  log_every_rounds: 1
+  save_optimizer: false

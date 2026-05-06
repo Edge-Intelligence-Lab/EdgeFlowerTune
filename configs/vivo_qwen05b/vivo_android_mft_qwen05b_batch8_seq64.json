@@ -1,0 +1,25 @@
+[
+  {
+    "type": "android",
+    "client_id": "vivo_73",
+    "client_index": 0,
+    "serial": "10AG181KTH005F7",
+    "backend": "mft",
+    "batch_size": 8,
+    "max_seq_len": 64,
+    "grad_accum_steps": 8,
+    "supports_grad_accum": true,
+    "use_bf16_activations": true,
+    "checkpoint_every": 1,
+    "checkpoint_mlp": true,
+    "mlp_chunk_size": 16,
+    "shard_max_resident_mb": 384,
+    "shard_quantize_fp16_on_disk": true,
+    "shard_quant_mode": "int8",
+    "shard_offload_dir": "__memory__",
+    "device_root": "/data/local/tmp/L-shaped",
+    "local_stage_dir": "${EDGEFLOWERTUNE_ROOT}/L-shaped_code_docs_backup/outputs/android_client/arm64-v8a/mft",
+    "local_model_dir": "${EDGEFLOWERTUNE_ROOT}/qwen_lora_finetune/pretrained",
+    "remote_model_dir": "/data/local/tmp/L-shaped/models/qwen2.5-0.5b"
+  }
+]

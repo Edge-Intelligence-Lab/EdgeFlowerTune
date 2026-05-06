@@ -1,0 +1,72 @@
+runtime:
+  run_name: classic_fl_gemma270m_fedavg_lora_three_nova_r3
+  output_dir: outputs/classic_fl_gemma270m_fedavg_lora_three_nova_r3
+  seed: 7
+
+flower:
+  server_address: 0.0.0.0:19080
+  grpc_max_message_length: 536870912
+  num_rounds: 3
+  min_available_clients: 3
+  min_fit_clients: 3
+  sample_clients: 3
+  round_timeout: 3600
+  eval_every_rounds: 0
+  client_wait_timeout: 900
+
+federated:
+  algorithm: fedavg_lora
+  aggregate_by_num_examples: true
+  local_steps: 1
+  local_epochs: 0
+
+dataset:
+  source: mmlu_csv
+  source_path: data/mmlu/official_mmlu_test_100.csv
+  split: train
+  eval_split: test
+  num_clients: 3
+  client_ids:
+    - nova_19
+    - nova_72
+    - nova_49
+  batch_size: 1
+  max_seq_len: 128
+  partition_mode: round_robin
+  dirichlet_alpha: 0.8
+  smoke_test_examples: 20
+
+model:
+  model_name_or_path: unused_on_server_classic_fl
+  device: cpu
+  dtype: float32
+  target_embedding_mode: unused_classic_fl
+  freeze_input_embeddings: true
+  grad_clip_norm: 1.0
+  learning_rate: 2.0e-4
+  weight_decay: 0.0
+  training_mode: lora
+  lora_r: 8
+  lora_alpha: 16.0
+  lora_dropout: 0.0
+  lora_target_modules:
+    - q_proj
+    - k_proj
+    - v_proj
+    - o_proj
+
+loss:
+  temperature: 1.0
+  queue_size: 0
+  use_in_batch_negatives: false
+
+client:
+  backend: mobilefinetuner_cpp
+  client_mode: classic_lora
+  upload_dtype: float32
+  pad_to_max_seq_len: false
+
+logging:
+  save_every_rounds: 1
+  log_every_rounds: 1
+  save_optimizer: false

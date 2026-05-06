@@ -1,0 +1,5 @@
+flwr==1.27.0
+numpy>=1.26
+pyyaml>=6.0
+safetensors>=0.4.5
+paramiko>=3.5.1

@@ -1,0 +1,43 @@
+[
+  {
+    "type": "android",
+    "client_id": "nova_78",
+    "client_index": 0,
+    "serial": "PHONE_ADB_SERIAL",
+    "backend": "mft",
+    "batch_size": 8,
+    "max_seq_len": 64,
+    "max_rounds": 1,
+    "local_stage_dir": "L-shaped_code_docs_backup/outputs/android_client/arm64-v8a/mft",
+    "local_model_dir": "${MODEL_ROOT}/gemma-3-1b",
+    "remote_model_dir": "/data/local/tmp/L-shaped/models/gemma-3-1b-pt"
+  },
+  {
+    "type": "nano",
+    "client_id": "jetson_121",
+    "client_index": 1,
+    "host": "10.200.20.121",
+    "username": "jetson",
+    "password": "jetson",
+    "backend": "mft",
+    "remote_root": "/home/jetson/L-shaped",
+    "model_dir": "/home/jetson/L-shaped/models/gemma-3-1b-pt",
+    "batch_size": 8,
+    "max_seq_len": 64,
+    "max_rounds": 1
+  },
+  {
+    "type": "nano",
+    "client_id": "jetson_151",
+    "client_index": 2,
+    "host": "10.200.20.151",
+    "username": "jetson",
+    "password": "jetson",
+    "backend": "mft",
+    "remote_root": "/home/jetson/L-shaped",
+    "model_dir": "/home/jetson/L-shaped/models/gemma-3-1b-pt",
+    "batch_size": 8,
+    "max_seq_len": 64,
+    "max_rounds": 1
+  }
+]

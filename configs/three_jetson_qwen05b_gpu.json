@@ -1,0 +1,32 @@
+[
+  {
+    "type": "jetson_gpu",
+    "client_id": "jetson_121",
+    "client_index": 5,
+    "host": "10.200.20.121",
+    "username": "jetson",
+    "password": "jetson",
+    "model_dir": "/home/jetson/L-shaped/models/qwen2.5-0.5b",
+    "remote_root": "/home/jetson/qwen05b_mixed_formal"
+  },
+  {
+    "type": "jetson_gpu",
+    "client_id": "jetson_151",
+    "client_index": 6,
+    "host": "10.200.20.151",
+    "username": "jetson",
+    "password": "jetson",
+    "model_dir": "/home/jetson/L-shaped/models/qwen2.5-0.5b",
+    "remote_root": "/home/jetson/qwen05b_mixed_formal"
+  },
+  {
+    "type": "jetson_gpu",
+    "client_id": "jetson_88",
+    "client_index": 7,
+    "host": "10.200.21.88",
+    "username": "jetson",
+    "password": "jetson",
+    "model_dir": "/home/jetson/L-shaped/models/qwen2.5-0.5b",
+    "remote_root": "/home/jetson/qwen05b_mixed_formal"
+  }
+]

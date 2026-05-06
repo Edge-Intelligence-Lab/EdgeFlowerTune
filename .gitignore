@@ -1,0 +1,47 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+.mypy_cache/
+.pytest_cache/
+
+# Build artifacts
+build/
+build_*/
+cmake-build-*/
+CMakeFiles/
+CMakeCache.txt
+*.o
+*.a
+*.so
+*.dylib
+*.exe
+
+# Local data, models, and results
+/data/
+/models/
+/pretrained/
+/outputs/
+/runs/
+/deliverables/
+/checkpoints/
+*.safetensors
+*.bin
+*.pt
+*.pth
+*.onnx
+*.ckpt
+*.zip
+*.tar
+*.tar.gz
+*.whl
+
+# Local device configs
+configs/*.local.json
+configs/*.local.yaml
+configs/*.local.yml
+
+# OS/editor
+.DS_Store
+.idea/
+.vscode/

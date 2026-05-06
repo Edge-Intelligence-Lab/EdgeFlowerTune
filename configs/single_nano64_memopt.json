@@ -1,0 +1,15 @@
+[
+  {
+    "client_id": "nano_64",
+    "host": "10.200.21.64",
+    "client_index": 0,
+    "backend": "mft",
+    "model_dir": "/home/jetson/L-shaped/models/gemma-3-270m",
+    "checkpoint_every": 1,
+    "checkpoint_mlp": true,
+    "use_bf16_activations": true,
+    "mlp_chunk_size": 16,
+    "shard_max_resident_mb": 768,
+    "shard_quant_mode": "int8"
+  }
+]

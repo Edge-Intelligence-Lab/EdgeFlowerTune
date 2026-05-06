@@ -1,0 +1,81 @@
+runtime:
+  run_name: classic_fl_gemma3_fedavg_lora_eight_client_formal_seq64_wikitext_b8_r250
+  output_dir: outputs/classic_fl_gemma3_fedavg_lora_eight_client_formal_seq64_wikitext_b8_r250
+  seed: 7
+
+flower:
+  server_address: 0.0.0.0:19120
+  grpc_max_message_length: 536870912
+  num_rounds: 250
+  min_available_clients: 8
+  min_fit_clients: 8
+  sample_clients: 8
+  round_timeout: 10800
+  eval_every_rounds: 0
+  client_wait_timeout: 3600
+
+federated:
+  algorithm: fedavg_lora
+  aggregate_by_num_examples: true
+  local_steps: 10
+  local_epochs: 0
+  grad_accum_steps: 1
+  jetson_grad_accum_steps: 8
+  prox_mu: 0.0
+
+dataset:
+  source: wikitext_raw
+  train_path: data/wikitext2/wikitext-2-raw/wiki.train.raw
+  valid_path: data/wikitext2/wikitext-2-raw/wiki.valid.raw
+  test_path: data/wikitext2/wikitext-2-raw/wiki.test.raw
+  num_clients: 8
+  client_ids:
+    - nova_78
+    - nova_252
+    - nova_19
+    - nova_72
+    - nova_49
+    - jetson_121
+    - jetson_151
+    - jetson_88
+  batch_size: 8
+  jetson_batch_size: 1
+  max_seq_len: 64
+  partition_mode: round_robin
+  smoke_test_examples: 0
+
+model:
+  model_name_or_path: gemma-3-270m
+  device: cuda
+  dtype: float32
+  target_embedding_mode: unused_classic_fl
+  freeze_input_embeddings: true
+  grad_clip_norm: 1.0
+  learning_rate: 2.0e-4
+  weight_decay: 0.0
+  training_mode: lora
+  lora_r: 8
+  lora_alpha: 32.0
+  lora_dropout: 0.0
+  lora_target_modules:
+    - q_proj
+    - k_proj
+    - v_proj
+    - o_proj
+
+loss:
+  temperature: 1.0
+  queue_size: 0
+  use_in_batch_negatives: false
+
+client:
+  backend: mobilefinetuner_cpp
+  client_mode: classic_lora
+  upload_dtype: float32
+  pad_to_max_seq_len: false
+  target_mode: attn
+
+logging:
+  save_every_rounds: 1
+  log_every_rounds: 1
+  save_optimizer: false

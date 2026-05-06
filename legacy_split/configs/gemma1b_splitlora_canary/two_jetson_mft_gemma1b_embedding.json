@@ -1,0 +1,30 @@
+[
+  {
+    "type": "nano",
+    "client_id": "jetson_121",
+    "client_index": 0,
+    "host": "10.200.20.121",
+    "username": "jetson",
+    "password": "jetson",
+    "backend": "mft",
+    "remote_root": "/home/jetson/L-shaped",
+    "model_dir": "/home/jetson/L-shaped/models/gemma-3-1b-pt-split0-embedding",
+    "batch_size": 8,
+    "max_seq_len": 64,
+    "max_rounds": 1
+  },
+  {
+    "type": "nano",
+    "client_id": "jetson_88",
+    "client_index": 1,
+    "host": "10.200.21.88",
+    "username": "jetson",
+    "password": "jetson",
+    "backend": "mft",
+    "remote_root": "/home/jetson/L-shaped",
+    "model_dir": "/home/jetson/L-shaped/models/gemma-3-1b-pt-split0-embedding",
+    "batch_size": 8,
+    "max_seq_len": 64,
+    "max_rounds": 1
+  }
+]

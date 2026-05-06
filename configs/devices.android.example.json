@@ -1,0 +1,20 @@
+{
+  "devices": [
+    {
+      "id": "phone_a",
+      "type": "android",
+      "adb_serial": "PHONE_A_ADB_SERIAL",
+      "model": "Android phone",
+      "role": "mobilefinetuner_client",
+      "notes": "Replace with a local ADB serial such as IP:5555 or a USB serial."
+    },
+    {
+      "id": "phone_b",
+      "type": "android",
+      "adb_serial": "PHONE_B_ADB_SERIAL",
+      "model": "Android phone",
+      "role": "mobilefinetuner_client",
+      "notes": "Keep device-specific values in a private local copy."
+    }
+  ]
+}

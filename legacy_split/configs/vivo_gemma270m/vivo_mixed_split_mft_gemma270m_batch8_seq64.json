@@ -1,0 +1,15 @@
+[
+  {
+    "type": "android",
+    "client_id": "vivo_73",
+    "client_index": 0,
+    "serial": "VIVO_ADB_SERIAL",
+    "backend": "mft",
+    "batch_size": 8,
+    "max_seq_len": 64,
+    "max_rounds": 1,
+    "device_root": "/data/local/tmp/L-shaped",
+    "local_stage_dir": "${EDGEFLOWERTUNE_ROOT}/L-shaped_code_docs_backup/outputs/android_client/arm64-v8a/mft_jad_0958",
+    "local_model_dir": "${MODEL_ROOT}/gemma-3-270m"
+  }
+]

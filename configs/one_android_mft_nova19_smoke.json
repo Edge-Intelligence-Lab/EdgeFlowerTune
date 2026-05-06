@@ -1,0 +1,11 @@
+[
+  {
+    "type": "android",
+    "client_id": "nova_19",
+    "client_index": 0,
+    "serial": "PHONE_ADB_SERIAL",
+    "backend": "mft",
+    "local_stage_dir": "outputs/android_client/arm64-v8a/mft",
+    "local_model_dir": "${MODEL_ROOT}/gemma-3-270m"
+  }
+]

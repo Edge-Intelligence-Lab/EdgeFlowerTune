@@ -1,0 +1,28 @@
+[
+  {
+    "type": "android",
+    "client_id": "jad_24",
+    "client_index": 0,
+    "serial": "JAD_ADB_SERIAL",
+    "backend": "mft",
+    "batch_size": 8,
+    "max_seq_len": 64,
+    "max_rounds": 1,
+    "device_root": "/data/local/tmp/L-shaped",
+    "local_stage_dir": "${EDGEFLOWERTUNE_ROOT}/L-shaped_code_docs_backup/outputs/android_client/arm64-v8a/mft",
+    "local_model_dir": "${MODEL_ROOT}/gemma-3-270m"
+  },
+  {
+    "type": "android",
+    "client_id": "mate20_144",
+    "client_index": 1,
+    "serial": "MATE20_USB_SERIAL",
+    "backend": "mft",
+    "batch_size": 8,
+    "max_seq_len": 64,
+    "max_rounds": 1,
+    "device_root": "/data/local/tmp/L-shaped",
+    "local_stage_dir": "${EDGEFLOWERTUNE_ROOT}/L-shaped_code_docs_backup/outputs/android_client/arm64-v8a/mft",
+    "local_model_dir": "${MODEL_ROOT}/gemma-3-270m"
+  }
+]

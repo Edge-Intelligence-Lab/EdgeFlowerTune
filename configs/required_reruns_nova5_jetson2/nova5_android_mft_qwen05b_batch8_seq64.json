@@ -1,0 +1,72 @@
+[
+  {
+    "type": "android",
+    "client_id": "nova_78",
+    "client_index": 0,
+    "serial": "PHONE_ADB_SERIAL",
+    "backend": "mft",
+    "batch_size": 8,
+    "max_seq_len": 64,
+    "grad_accum_steps": null,
+    "supports_grad_accum": false,
+    "local_stage_dir": "outputs/android_client/arm64-v8a/mft",
+    "local_model_dir": "${EDGEFLOWERTUNE_ROOT}/qwen_lora_finetune/pretrained",
+    "remote_model_dir": "/data/local/tmp/L-shaped/models/qwen2.5-0.5b"
+  },
+  {
+    "type": "android",
+    "client_id": "nova_252",
+    "client_index": 1,
+    "serial": "PHONE_ADB_SERIAL",
+    "backend": "mft",
+    "batch_size": 8,
+    "max_seq_len": 64,
+    "grad_accum_steps": null,
+    "supports_grad_accum": false,
+    "local_stage_dir": "outputs/android_client/arm64-v8a/mft",
+    "local_model_dir": "${EDGEFLOWERTUNE_ROOT}/qwen_lora_finetune/pretrained",
+    "remote_model_dir": "/data/local/tmp/L-shaped/models/qwen2.5-0.5b"
+  },
+  {
+    "type": "android",
+    "client_id": "nova_19",
+    "client_index": 2,
+    "serial": "PHONE_ADB_SERIAL",
+    "backend": "mft",
+    "batch_size": 8,
+    "max_seq_len": 64,
+    "grad_accum_steps": null,
+    "supports_grad_accum": false,
+    "local_stage_dir": "outputs/android_client/arm64-v8a/mft",
+    "local_model_dir": "${EDGEFLOWERTUNE_ROOT}/qwen_lora_finetune/pretrained",
+    "remote_model_dir": "/data/local/tmp/L-shaped/models/qwen2.5-0.5b"
+  },
+  {
+    "type": "android",
+    "client_id": "nova_72",
+    "client_index": 3,
+    "serial": "PHONE_ADB_SERIAL",
+    "backend": "mft",
+    "batch_size": 8,
+    "max_seq_len": 64,
+    "grad_accum_steps": null,
+    "supports_grad_accum": false,
+    "local_stage_dir": "outputs/android_client/arm64-v8a/mft",
+    "local_model_dir": "${EDGEFLOWERTUNE_ROOT}/qwen_lora_finetune/pretrained",
+    "remote_model_dir": "/data/local/tmp/L-shaped/models/qwen2.5-0.5b"
+  },
+  {
+    "type": "android",
+    "client_id": "nova_49",
+    "client_index": 4,
+    "serial": "PHONE_ADB_SERIAL",
+    "backend": "mft",
+    "batch_size": 8,
+    "max_seq_len": 64,
+    "grad_accum_steps": null,
+    "supports_grad_accum": false,
+    "local_stage_dir": "outputs/android_client/arm64-v8a/mft",
+    "local_model_dir": "${EDGEFLOWERTUNE_ROOT}/qwen_lora_finetune/pretrained",
+    "remote_model_dir": "/data/local/tmp/L-shaped/models/qwen2.5-0.5b"
+  }
+]

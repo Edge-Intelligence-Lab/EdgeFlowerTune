@@ -1,0 +1,77 @@
+runtime:
+  run_name: splitlora_gemma270m_five_client_one_round
+  output_dir: outputs/splitlora_gemma270m_five_client_one_round
+  seed: 7
+
+flower:
+  server_address: 0.0.0.0:19080
+  grpc_max_message_length: 536870912
+  num_rounds: 1
+  min_available_clients: 5
+  min_fit_clients: 5
+  sample_clients: 5
+  round_timeout: 5400
+  eval_every_rounds: 0
+  client_wait_timeout: 1800
+
+federated:
+  algorithm: splitlora
+  local_steps: 1
+  aggregate_by_num_examples: false
+
+dataset:
+  source: synthetic
+  source_path: data/mmlu/official_mmlu_test_100.csv
+  split: train
+  eval_split: test
+  num_clients: 5
+  client_ids:
+    - nano_64
+    - nano_88
+    - nova_19
+    - nova_72
+    - nova_49
+  batch_size: 1
+  max_seq_len: 128
+  partition_mode: round_robin
+  dirichlet_alpha: 0.8
+  smoke_test_examples: 20
+
+model:
+  model_name_or_path: /datapool/BESTTOOLBOX/google/gemma-3-270m-it
+  device: cuda:0
+  dtype: bfloat16
+  target_embedding_mode: scaled_input_embedding
+  freeze_input_embeddings: true
+  grad_clip_norm: 1.0
+  learning_rate: 5.0e-5
+  weight_decay: 0.0
+  training_mode: lora
+  lora_r: 8
+  lora_alpha: 16.0
+  lora_dropout: 0.0
+  lora_target_modules:
+    - q_proj
+    - k_proj
+    - v_proj
+    - o_proj
+    - gate_proj
+    - up_proj
+    - down_proj
+
+loss:
+  temperature: 1.0
+  queue_size: 64
+  use_in_batch_negatives: true
+
+client:
+  backend: mobilefinetuner_cpp
+  client_mode: split_lora
+  split_layer: 0
+  upload_dtype: float32
+  pad_to_max_seq_len: false
+
+logging:
+  save_every_rounds: 1
+  log_every_rounds: 1
+  save_optimizer: false

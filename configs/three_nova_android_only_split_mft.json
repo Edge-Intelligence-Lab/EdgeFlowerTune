@@ -1,0 +1,35 @@
+[
+  {
+    "type": "android",
+    "client_id": "nova_19",
+    "client_index": 0,
+    "serial": "PHONE_ADB_SERIAL",
+    "backend": "mft",
+    "batch_size": 1,
+    "max_seq_len": 128,
+    "max_rounds": 3,
+    "remote_model_dir": "/data/local/tmp/L-shaped/models/gemma-3-270m-it-split0-slim"
+  },
+  {
+    "type": "android",
+    "client_id": "nova_72",
+    "client_index": 1,
+    "serial": "PHONE_ADB_SERIAL",
+    "backend": "mft",
+    "batch_size": 1,
+    "max_seq_len": 128,
+    "max_rounds": 3,
+    "remote_model_dir": "/data/local/tmp/L-shaped/models/gemma-3-270m-it-split0-slim"
+  },
+  {
+    "type": "android",
+    "client_id": "nova_49",
+    "client_index": 2,
+    "serial": "PHONE_ADB_SERIAL",
+    "backend": "mft",
+    "batch_size": 1,
+    "max_seq_len": 128,
+    "max_rounds": 3,
+    "remote_model_dir": "/data/local/tmp/L-shaped/models/gemma-3-270m-it-split0-slim"
+  }
+]

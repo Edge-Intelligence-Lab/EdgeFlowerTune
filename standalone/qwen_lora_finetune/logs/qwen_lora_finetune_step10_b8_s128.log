@@ -1,0 +1,15 @@
+
+========== Qwen2.5-0.5B LoRA Finetune (WikiText-2, C++) ==========
+[GPT2BPETokenizer] Loaded: vocab_size=151643, merges=151290
+[LoRA] Initialized with rank=8, alpha=16, qv_only=false
+[Dataset] Total sequences: 36146
+[Config] Micro batch size: 8
+[Config] Grad accum steps: 1
+[Config] Effective batch size: 8
+[Dataset] Steps per epoch: 4519
+[debug] grad L2 (all LoRA params) = 1.09401e+11
+[step 1/10] loss=10.9629
+[step 2/10] loss=11.4066
+[step 3/10] loss=10.9181
+[step 4/10] loss=11.271
+[step 5/10] loss=11.089

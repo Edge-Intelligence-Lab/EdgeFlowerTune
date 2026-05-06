@@ -1,0 +1,39 @@
+[
+  {
+    "type": "nano",
+    "client_id": "nano_64",
+    "client_index": 0,
+    "host": "10.200.21.64",
+    "backend": "mft",
+    "model_dir": "/home/jetson/L-shaped/models/gemma-3-270m"
+  },
+  {
+    "type": "nano",
+    "client_id": "nano_88",
+    "client_index": 1,
+    "host": "10.200.21.88",
+    "backend": "mft",
+    "model_dir": "/home/jetson/L-shaped/models/gemma-3-270m"
+  },
+  {
+    "type": "android",
+    "client_id": "nova_19",
+    "client_index": 2,
+    "serial": "PHONE_ADB_SERIAL",
+    "backend": "mock"
+  },
+  {
+    "type": "android",
+    "client_id": "nova_72",
+    "client_index": 3,
+    "serial": "PHONE_ADB_SERIAL",
+    "backend": "mock"
+  },
+  {
+    "type": "android",
+    "client_id": "nova_49",
+    "client_index": 4,
+    "serial": "PHONE_ADB_SERIAL",
+    "backend": "mock"
+  }
+]

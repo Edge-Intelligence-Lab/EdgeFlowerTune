@@ -1,0 +1,23 @@
+[
+  {
+    "type": "android",
+    "client_id": "nova_19",
+    "client_index": 2,
+    "serial": "PHONE_ADB_SERIAL",
+    "backend": "mock"
+  },
+  {
+    "type": "android",
+    "client_id": "nova_72",
+    "client_index": 3,
+    "serial": "PHONE_ADB_SERIAL",
+    "backend": "mock"
+  },
+  {
+    "type": "android",
+    "client_id": "nova_49",
+    "client_index": 4,
+    "serial": "PHONE_ADB_SERIAL",
+    "backend": "mock"
+  }
+]

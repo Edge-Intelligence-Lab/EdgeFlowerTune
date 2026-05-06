@@ -1,0 +1,83 @@
+runtime:
+  run_name: classic_fl_gemma1b_flexlora_three_client_boolq_seq64_b8_r1_l3
+  output_dir: outputs/classic_fl_gemma1b_flexlora_three_client_boolq_seq64_b8_r1_l3
+  seed: 7
+
+flower:
+  server_address: 0.0.0.0:19333
+  grpc_max_message_length: 536870912
+  num_rounds: 1
+  min_available_clients: 3
+  min_fit_clients: 3
+  sample_clients: 3
+  round_timeout: 10800
+  eval_every_rounds: 1
+  client_wait_timeout: 3600
+
+federated:
+  algorithm: flexlora
+  aggregate_by_num_examples: true
+  local_steps: 3
+  local_epochs: 0
+  grad_accum_steps: 1
+  jetson_grad_accum_steps: 8
+  prox_mu: 0.0
+  client_lora_ranks:
+    nova_78: 4
+    jetson_121: 8
+    jetson_151: 16
+
+dataset:
+  source: mmlu_csv
+  source_path: data/boolq_gemma1b/boolq_train_mmlu.csv
+  eval_source_path: data/boolq_gemma1b/boolq_validation_mmlu.csv
+  final_test_source_path: data/boolq_gemma1b/boolq_test_mmlu.csv
+  split: train
+  eval_split: validation
+  num_clients: 3
+  client_ids:
+    - nova_78
+    - jetson_121
+    - jetson_151
+  batch_size: 8
+  jetson_batch_size: 1
+  max_seq_len: 64
+  partition_mode: round_robin
+  dirichlet_alpha: 0.8
+  smoke_test_examples: 0
+
+model:
+  model_name_or_path: gemma-3-1b-pt
+  device: cuda
+  dtype: float16
+  target_embedding_mode: unused_classic_fl
+  freeze_input_embeddings: true
+  grad_clip_norm: 1.0
+  learning_rate: 2.0e-4
+  weight_decay: 0.0
+  training_mode: lora
+  lora_r: 16
+  lora_alpha: 32.0
+  lora_dropout: 0.0
+  lora_target_modules:
+    - q_proj
+    - k_proj
+    - v_proj
+    - o_proj
+
+loss:
+  temperature: 1.0
+  queue_size: 0
+  use_in_batch_negatives: false
+
+client:
+  backend: mobilefinetuner_cpp
+  client_mode: classic_lora
+  upload_dtype: float32
+  pad_to_max_seq_len: false
+  target_mode: attn
+
+logging:
+  save_every_rounds: 1
+  log_every_rounds: 1
+  save_optimizer: false

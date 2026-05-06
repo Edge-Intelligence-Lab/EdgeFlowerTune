@@ -1,0 +1,41 @@
+runtime:
+  run_name: centralized_gemma270m_lora_five_phone_reference
+  output_dir: outputs/centralized_gemma270m_lora_five_phone_reference
+  seed: 7
+
+dataset:
+  source_path: data/mmlu/official_mmlu_test_100.csv
+  num_clients: 5
+  client_ids:
+    - nova_78
+    - nova_252
+    - nova_19
+    - nova_72
+    - nova_49
+  batch_size: 1
+  max_seq_len: 128
+  partition_mode: round_robin
+  shuffle: true
+  answer_prefix: " "
+
+model:
+  model_name_or_path: /datapool/BESTTOOLBOX/google/gemma-3-270m-it
+  device: cuda:0
+  dtype: bfloat16
+  grad_clip_norm: 1.0
+  learning_rate: 2.0e-4
+  weight_decay: 0.0
+  training_mode: lora
+  lora_r: 8
+  lora_alpha: 16.0
+  lora_dropout: 0.0
+  lora_target_modules:
+    - q_proj
+    - k_proj
+    - v_proj
+    - o_proj
+
+train:
+  max_steps: 9
+  logging_steps: 1
+  save_every_steps: 3
